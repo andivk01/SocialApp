@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app:
+    container_name: app
+    build: .
+    command: nodemon --watch /usr/src/app -e js app.js
+    ports:
+    - "9999:9999"
+    volumes:
+    - ./nodejs:/usr/src/app
+    links:
+    - "db:mysql_server"
+  db:
+    container_name: db
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: 'njs'
+      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./default.sql:/default.sql

@@ -1,0 +1,50 @@
+body {
+    background-color: rgb(230, 225, 225);
+}
+
+header {
+    background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.9)), url("header-img.png");
+    background-size: contain;
+    margin-top: 5px;
+}
+header h1 a {
+    font-weight: bold;
+    color: #0056b3;
+}
+header h1 a:hover {
+    color: #1a71ce;
+    text-decoration: none;
+}
+header h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+#mainAppColumn {
+    background-color: rgba(255, 255, 255, 0.459);
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+    min-height: 100vh;
+    padding-bottom: 40px; /* height of the footer */
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    height: 40px;
+    width: 100%;
+    background-color: grey;
+    background: linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.7)), url("header-img.png");
+    background-size: contain;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.d-flex {
+    gap: 2em;
+}
+
+/* hide scrollbar */
+/* ::-webkit-scrollbar { 
+    display: none;
+} */

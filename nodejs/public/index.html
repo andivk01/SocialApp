@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SocialApp</title>
+        <meta charset="utf-8">
+        <meta name="author" content="SM3201156">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    
+    <body lang="en">
+        <div class="container vh-100">              
+            <div class="row justify-content-center vh-100">
+                <div id="mainAppColumn" class="col-12 col-md-9 col-lg-7 px-0"> <!-- main column -->
+
+
+                    <header> <!-- contains navbar and title -->
+                        <div class="text-center">
+                            <h1><a href="#" id="socialAppHome">SocialApp</a></h1>
+                            <h2 id="helloH2">Hello reader!</h2>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <nav class="nav">
+                                <a id="navHome" class="nav-link" href="#">Home</a>
+                                <a id="navLogin" class="nav-link" href="#">Login</a>
+                                <a id="navRegister" class="nav-link" href="#">Register</a>
+                                <a id="navFeed" class="nav-link" href="#">Feed</a>
+                                <a id="navAccount" class="nav-link" href="#">Account</a>
+                            </nav> 
+                        </div>
+                    </header>
+                    
+                    <div id="popup" class="alert alert-success text-center d-none p-1" role="alert"></div> <!-- displays success/error messages -->
+                    
+                    <div id="loginDiv" class="row justify-content-center mt-3 mx-1"> <!-- displays login form -->
+                        <div class="col-11 col-sm-10 col-md-9 col-lg-6">
+                            <form id="loginForm">
+                                <div class="form-group">
+                                  <label for="loginUsernameForm">Username</label>
+                                  <input type="text" class="form-control" name="loginUsernameForm" id="loginUsernameForm" placeholder="Enter username">
+                                </div>
+                                <div class="form-group">
+                                  <label for="loginPasswordForm">Password</label>
+                                  <input type="password" class="form-control" name="loginPasswordForm" id="loginPasswordForm" placeholder="Password">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Sign in</button>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
+                    
+                    <div id="registerDiv" class="row justify-content-center mt-3 mx-1"> <!-- displays register form -->
+                        <div class="col-11 col-sm-10 col-md-9 col-lg-7">
+                            <form id="registerForm">
+                                <div class="form-row py-2">
+                                    <div class="col">
+                                        <label for="regUsernameForm">Username</label>
+                                        <input type="text" class="form-control" placeholder="Username" name="regUsernameForm" id="regUsernameForm">
+                                    </div>
+                                    <div class="col">
+                                        <label for="regPasswordForm">Password</label>
+                                        <input type="password" class="form-control" placeholder="Password" name="regPasswordForm" id="regPasswordForm">
+                                    </div>
+                                </div>
+                                <div class="form-row py-2">
+                                    <div class="col">
+                                        <label for="regNameForm">Name</label>
+                                        <input type="text" class="form-control" placeholder="First name" name="regNameForm" id="regNameForm">
+                                    </div>
+                                    <div class="col">
+                                        <label for="regSurnameForm">Surname</label>
+                                        <input type="text" class="form-control" placeholder="Last name" name="regSurnameForm" id="regSurnameForm">
+                                    </div>
+                                </div>
+                                <div class="form-row py-2">
+                                    <div class="col">
+                                        <label for="regBioForm">Your bio:</label>
+                                        <textarea type="text" class="form-control" placeholder="Bio" name="regBioForm" id="regBioForm"></textarea>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Sign up</button>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
+
+                    <div id="usersDiv" class="row mt-3 mx-1"> <!-- displays site users -->
+                        <div class="col">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-6">
+                                    <input type="text" name="query" placeholder="Search an user..." class="form-control text-center" id="filterUserInput" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-1">
+                                <div class="col-12 col-sm-12">
+                                    Users found:
+                                    <ul class="list-group"></ul>                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="userInfoDiv" class="container"> <!-- displays user info of selected user -->
+                        <div class="m-2">
+                            <span class="font-weight-bold">Username:</span><br><span id="usernameSpan"></span><br/>
+                            <span class="font-weight-bold">Name:</span><br><span id="nameSpan"></span><br/>
+                            <span class="font-weight-bold">Surname:</span><br><span id="surnameSpan"></span><br/>
+                            <a id="followUser" href="#">Follow</a>
+                        </div>
+                        <div class="mt-2 ml-5" style="max-height:200px; overflow-y:auto;">
+                            <span id="bioSpan"></span><br/>
+                        </div>
+                    </div>
+                    
+                    <div id="userFeedDiv" class="row mt-3 mx-1"> <!-- displays current user feed (login required) -->
+                        <div class="col"></div>
+                    </div>
+                    
+                    <div id="userNewMessageDiv" class="row mt-3 mx-1"> <!-- displays a form to write a new message (login required) -->
+                        <div class="col">
+                            <form id="newMessageForm">
+                                <div class="form-row py-2">
+                                    <div class="col">
+                                        <label for="newMessageTextArea">Write a new message:</label>
+                                        <textarea type="text" class="form-control" placeholder="Message" name="newMessageTextArea" id="newMessageTextArea"></textarea>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-primary">Send!</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="userMessagesDiv" class="row mt-3 mx-1"> <!-- displays current/selected user messages -->
+                        <div class="col"></div>
+                    </div>
+
+                    <div id="userFollowersDiv" class="row justify-content-center mt-3 mx-1 mb-2"> <!-- displays current/selected user followers -->
+                        <div class="col">
+                            Followers:
+                            <ul class="list-group"></ul>
+                        </div>
+                    </div>
+
+                    <footer>
+                        <a href="mailto:andrea.ivkovic01@gmail.com">Contact Andrea Ivkovic (SM3201156)</a>
+                    </footer>
+
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

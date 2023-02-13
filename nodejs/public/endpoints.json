@@ -1,0 +1,18 @@
+{
+    "endpoints": [
+        {"method": "POST", "path": "/auth/signup", "description": "Registrazione di un nuovo utente"},
+        {"method": "POST", "path": "/auth/signin", "description": "Login di un utente"},
+        {"method": "GET", "path": "/social/users/:id", "description": "Visualizzazione informazione dell’utente con ID id"},
+        {"method": "GET", "path": "/social/messages/:userId", "description": "Elenco dei messaggi dell’utente con ID userID"},
+        {"method": "GET", "path": "/social/messages/:userId/:idMsg", "description": "Singolo messaggio dell’utente userID con ID idMsg"},
+        {"method": "POST", "path": "/social/messages", "description": "Creazione di un nuovo messaggio"},
+        {"method": "GET", "path": "/social/followers/:id", "description": "Lista dei followers dell’utente con ID id"},
+        {"method": "POST", "path": "/social/followers/:id", "description": "Aggiunta di un nuovo follow per l’utente id"},
+        {"method": "DELETE", "path": "/social/followers/:id", "description": "Rimozione del follow all’utente id"},
+        {"method": "GET", "path": "/social/feed", "description": "Elenco dei messaggi degli utenti seguiti"},
+        {"method": "POST", "path": "/social/like/:idMessage", "description": "Like ad un messaggio con ID idMessage"},
+        {"method": "DELETE", "path": "/social/like/:idMessage", "description": "Rimozione like al messaggio con ID idMessage"},
+        {"method": "GET", "path": "/social/search?q=query", "description": "Cerca l’utente che matcha la stringa query"},
+        {"method": "GET", "path": "/social/whoami", "description": "Se autenticato, restituisce le informazioni sull’utente"}
+    ]
+}
