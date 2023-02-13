@@ -6,8 +6,6 @@ services:
     command: nodemon --watch /usr/src/app -e js app.js
     ports:
     - "9999:9999"
-    volumes:
-    - ./nodejs:/usr/src/app
     links:
     - "db:mysql_server"
   db:
@@ -24,3 +22,4 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
       - ./default.sql:/default.sql
+      - ./example.sql:/example.sql
